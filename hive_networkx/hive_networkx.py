@@ -606,7 +606,7 @@ class Hive(object):
             # ================
             # Draw edges
             if show_edges:
-                for (edge, weight) in edges.iteritems():
+                for (edge, weight) in edges.items():
                     if abs(weight) > 0:
                         node_A, node_B = edge
                         name_axis_A = self.node_mapping_[node_A]
@@ -770,7 +770,7 @@ class Hive(object):
                             warnings.warn("`show_node_labels` is not available in version: {}".format(__version__))
                         else:
                             horizontalalignment_nodelabels = None
-                            for name_node, r in node_positions[index_labels].iteritems():  
+                            for name_node, r in node_positions[index_labels].items():  
                                 #! Address this in future version
 #                                 # Vertical axis case
 #                                 vertical_axis_left = (quadrant in {90,270}) and (node_label_position_vertical_axis == "left")
@@ -952,7 +952,7 @@ class Hive(object):
         metadata = { "node_type":self.node_type, "edge_type":self.edge_type}
         metadata.update(attrs)
         graph = into(name=self.name, **metadata)
-        for (node_A, node_B), weight in self.weights.iteritems():
+        for (node_A, node_B), weight in self.weights.items():
             graph.add_edge(node_A, node_B, weight=weight)
         return graph
     
